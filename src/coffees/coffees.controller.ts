@@ -1,6 +1,6 @@
-import { Controller, Get, Post, Body, HttpCode, HttpStatus, Patch, Delete, Query, Param, HttpException, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpCode, HttpStatus, Patch, Delete, Query, Param } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
-import {Coffee} from './entities/coffee.entity'
+import { Coffee } from './entities/coffee.entity'
 
 @Controller('coffees')
 export class CoffeesController {
@@ -10,7 +10,6 @@ export class CoffeesController {
     @Get()
     findAll(@Query() paginationQuery): Coffee[] {
         // const {offset, limit} = paginationQuery;
-        throw new NotFoundException()
         return this.coffeesService.findAll()
     }
 
