@@ -16,7 +16,8 @@ export class CoffeesController {
     }
 
     @Get(':id')
-    findOne(@Param('id', ParseIntPipe) id: number): Coffee {
+    findOne(@Param('id') id: number): Coffee {
+        console.log(typeof id)
         return this.coffeesService.findOne(id)
     }
 
@@ -25,6 +26,7 @@ export class CoffeesController {
     @Post()
     @HttpCode(HttpStatus.CREATED)
     create(@Body() createCoffeeDto: CreateCoffeeDto){
+        console.log(createCoffeeDto instanceof CreateCoffeeDto)
         return this.coffeesService.create(createCoffeeDto)
     }
 

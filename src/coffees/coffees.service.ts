@@ -19,9 +19,7 @@ export class CoffeesService {
     }
 
     findOne(id): Coffee {
-        console.log(typeof id)
-        console.log(typeof +id)
-        return this.coffee.find(item => item.id === +id)
+        return this.coffee.find(item => item.id === id)
     }
 
     create(createCoffeeDto){
