@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Coffee } from './entities/coffee.entity';
+import { CreateCoffeeDto } from './dto/create-coffee.dto';
 
 @Injectable()
 export class CoffeesService {
+    
     private coffee: Coffee[] = [
         {
             id: 1,
@@ -22,7 +24,7 @@ export class CoffeesService {
         return this.coffee.find(item => item.id === +id)
     }
 
-    create(createCoffeeDto: Coffee){
+    create(createCoffeeDto){
         return this.coffee.push(createCoffeeDto)
     }
 
